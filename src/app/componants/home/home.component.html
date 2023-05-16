@@ -1,0 +1,41 @@
+<div class="w-50 bg-light my-5 mx-auto p-5">
+    <form>
+        <form (ngSubmit)="getValue(name.value,Age.value,Email.value)" [formGroup] = "formValidation" class="form">
+            <div class="form-group d-flex m-auto mb-2">
+              <label class="col-3">Name</label>
+              <div>
+                <input #name formControlName="name" type="text" class="form-control"/>
+                <div *ngIf="!NameValid&&name.value!=''" style="color: red; text-align: center;">
+                  Name Not Valid
+                </div>
+              </div>
+              
+            </div>
+            <div class="form-group d-flex m-auto mb-2">
+              <label class="col-3">Age</label>
+              <div>
+                <input #Age formControlName="age" type="number" class="form-control"/>
+              <div *ngIf="!AgeValid &&Age.value!='' " style="color: red; text-align: center;">
+                 20 &lt; Age &lt; 40
+              </div>
+              </div>
+            </div>
+            <div class="form-group d-flex m-auto mb-2">
+                <label class="col-3">Email</label>
+               <div>
+                <input #Email formControlName="Email" type="email" class="form-control"/>
+                <div *ngIf="!EmailValid&&Email.value!='' " style="color: red; text-align: center;">
+                 <p>Email not valid</p>
+                </div>
+               </div>
+              </div>
+              
+            <div class="form-group text-center m-auto mb-2">
+              <input type="submit" value="Submit" class="btn btn-outline-success"/>
+            </div>
+            <div *ngIf="valid" class="text-center m-auto " style="color: rgb(38, 97, 30); text-align: center;">
+                <p>Ok</p>
+               </div>
+          </form>
+    </form>
+</div>
